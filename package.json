@@ -1,6 +1,6 @@
 {
-  "name": "code-recorder",
-  "displayName": "code-recorder",
+  "name": "vscoderec",
+  "displayName": "vscoderec",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mhadih/code_recorder_extention"
+    "url": "https://github.com/AP-ECE-UT/vscoderec"
   },
   "categories": [
     "Other"
