@@ -1,0 +1,96 @@
+{
+  "name": "code-recorder",
+  "displayName": "code-recorder",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhadih/code_recorder_extention"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeRecorder.hello",
+        "title": "Hello There",
+        "category": "Code Recorder"
+      },
+      {
+        "command": "codeRecorder.sendCache",
+        "title": "send cached data to AiEdUt.com",
+        "category": "Code Recorder"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeRecorderView",
+          "title": "Code Recorder",
+          "icon": "$(chip)"
+        }
+      ]
+    },
+    "views": {
+      "codeRecorderView": [
+        {
+          "type": "webview",
+          "id": "codeRecorderView.Login",
+          "name": "Login AiEdUt"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Code Recorder Configurations",
+      "properties": {
+        "codeRecorder.jwtTokens": {
+          "type": "object",
+          "default": {
+            "access": "",
+            "refresh": ""
+          },
+          "properties": {
+            "access": {
+              "type": "string"
+            },
+            "refresh": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "glob": "^10.3.10",
+    "zod": "^3.22.4"
+  }
+}
