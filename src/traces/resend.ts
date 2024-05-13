@@ -1,14 +1,14 @@
-import ConfigManager from "../configs";
 import fs from "fs";
 import path from "path";
+import ConfigManager from "../configs";
 import { postTraceData, TraceEvent } from ".";
 
 interface TraceEventFile {
   date: Date;
-  courseId: string;
-  assignment: string;
   trace: TraceEvent;
   failed: boolean;
+  courseId: string;
+  assignment: string;
 }
 
 export function resendCaches() {
@@ -18,8 +18,9 @@ export function resendCaches() {
   }
 
   function readJson(filename: string): TraceEventFile | undefined {
+    const fullPath = path.join(configs!.getCacheFolderPath(), filename);
     try {
-      return JSON.parse(fs.readFileSync(filename, "utf-8")) as TraceEventFile;
+      return JSON.parse(fs.readFileSync(fullPath, "utf-8")) as TraceEventFile;
     } catch (err) {
       console.error(err);
       return undefined;
